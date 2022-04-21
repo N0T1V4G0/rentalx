@@ -15,4 +15,15 @@ categoriesRoutes.post('/', (req, res) => {
   });
 });
 
+categoriesRoutes.get('/', (req, res) => {
+  const allCategories = categoryRepository.list();
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      categories: allCategories,
+    },
+  });
+});
+
 export { categoriesRoutes };
